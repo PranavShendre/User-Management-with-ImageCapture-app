@@ -1,0 +1,54 @@
+<div mat-dialog-title>
+    <h2>Add User Form</h2>
+</div>
+
+<form [formGroup]="empForm">
+    
+    <div mat-dialog-content style="padding-top: 0.2cm;">
+        <div style="display: flex; gap: 10px;">
+            <mat-form-field appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input matInput placeholder="Joe" formControlName="firstName">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput placeholder="Doe" formControlName="lastName">
+            </mat-form-field>
+        </div>
+        <div style="display: flex; gap: 10px;">
+            <mat-radio-group aria-label="Select an option" formControlName="gender">
+                <mat-label><b>Gender</b></mat-label>
+                <mat-radio-button value="M">Male</mat-radio-button>
+                <mat-radio-button value="F">Female</mat-radio-button>
+              </mat-radio-group>
+    
+              <mat-form-field appearance="outline" >
+                <mat-label>Role</mat-label>
+                <mat-select formControlName="role">
+                  <mat-option value="Supervisor">supervisor</mat-option>
+                  <mat-option value="Worker">worker</mat-option>
+                  <mat-option value="Worker">admin</mat-option>
+                </mat-select>
+              </mat-form-field>
+    
+          </div>
+          <div class="" >
+            <mat-form-field appearance="outline">
+                <mat-label>E-mail</mat-label>
+                <input matInput type="email" placeholder="Joe@example.com" formControlName="email">
+            </mat-form-field>
+        </div>
+        <mat-form-field appearance="outline">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+    
+    <div mat-dialog-actions class="center">
+        <button mat-raised-button [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="primary" (click)="submit()">{{data ? 'Update': 'Save'}}</button>
+    </div>
+</form>

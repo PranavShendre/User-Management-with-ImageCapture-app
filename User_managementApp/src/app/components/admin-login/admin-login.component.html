@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Log In</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'>
+
+</head>
+<body>
+    <div class="container">
+        <h2 class="login-title"> Admin Login</h2>
+    
+        <form class="login-form" [formGroup]="loginForm">
+          <div>
+            <label for="email">Email </label>
+            <input
+                   id="email"
+                   type="email"
+                   placeholder="me@example.com"
+                   formControlName="email"
+                   required
+                   />
+                   <div *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched"
+                                                        class="text-red-500">
+                                                        E-mail is required
+                                                    </div>
+          </div>
+    
+          <div>
+            <label for="password">Password </label>
+            <input
+                   id="password"
+                   type="password"
+                   placeholder="password"
+                   formControlName="password"
+                   required
+                   />
+                   <div *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched"
+                                                        class="text-red-500">
+                                                        Password is required
+                                                    </div>
+          </div>
+    
+          <button class="btn btn--form"(click)="submit('admin')" value="Log in">
+            Log in
+          </button>
+        </form>
+    </div>
+  
+</body>
+</html>
+

@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Log In</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'>
+
+</head>
+<body>
+
+<div class="section">
+    <button class="log mt-4 mr-4" style="float: right;" (click)="adminLogin()">Admin Login</button>
+		<div class="container">
+			<div class="row full-height justify-content-center">
+				<div class="col-12 text-center align-self-center py-5">
+					<div class="section pb-5 pt-5 pt-sm-2 text-center">
+						<h3 class="mb-0 pb-3"><span>Supervisor </span><span>Worker</span></h3>
+			          	<input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
+			          	<label for="reg-log"></label>
+						<div class="card-3d-wrap mx-auto">
+							<div class="card-3d-wrapper">
+								    <div class="card-front">
+                                        <form [formGroup]="loginForm">
+                                            <div class="center-wrap">
+                                                <div class="section text-center">
+                                                    <h4 class="mb-4 pb-3">Supervisor Log In</h4>
+                                                    <div class="form-group">
+                                                        <input type="email" formControlName="email" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
+                                                        <i class="input-icon uil uil-at"></i>
+                                                        <div *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched"
+                                                        class="text-red-500">
+                                                            E-mail is required
+                                                        </div>
+                                                    </div>	
+                                                    <div class="form-group mt-2">
+                                                        <input type="password" formControlName="password" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off">
+                                                        <i class="input-icon uil uil-lock-alt"></i>
+                                                        <input type="hidden" formControlName="role" value="supervisor"/>
+                                                        <div *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched"
+                                                        class="text-red-500">
+                                                        Password is required
+                                                    </div>
+                                                    </div>
+                                                    <button (click)="submit('supervisor')" class="btn mt-4" [disabled]="!this.loginForm.valid">submit</button>
+                                                </div>
+                                            </div>
+                                        </form>
+			      				    </div>
+                                    
+                                
+								<div class="card-back">
+                                    <form [formGroup]="loginForm">
+                                        <div class="center-wrap">
+                                            <div class="section text-center">
+                                                <h4 class="mb-4 pb-3">Worker Login</h4>
+                                                <!-- <div class="form-group">
+                                                    <input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off">
+                                                    <i class="input-icon uil uil-user"></i>
+                                                </div>	 -->
+                                                <div class="form-group mt-2">
+                                                    <input type="email" formControlName="email" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
+                                                    <i class="input-icon uil uil-at"></i>
+                                                    <div *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched"
+                                                        class="text-red-500">
+                                                            E-mail is required
+                                                        </div>
+                                                </div>	
+                                                <div class="form-group mt-2">
+                                                    <input type="password" formControlName="password" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off">
+                                                    <i class="input-icon uil uil-lock-alt"></i>
+                                                    <input type="hidden" formControlName="role" value="worker"/>
+                                                    <div *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched"
+                                                        class="text-red-500">
+                                                        Password is required
+                                                    </div>
+                                                </div>
+                                                <button class="btn mt-4" (click)="submit('worker')" [disabled]="!this.loginForm.valid">submit</button>
+                                              </div>
+                                          </div>
+                                    </form>
+									
+			      				</div>
+			      			</div>
+			      		</div>
+			      	</div>
+		      	</div>
+	      	</div>
+	    </div>
+	</div>
+<!-- partial -->
+  
+</body>
+</html>
+
